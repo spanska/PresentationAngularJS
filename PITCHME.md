@@ -1,11 +1,11 @@
 ![LOGO](http://www.pole-emploi.fr/image/mmlelement/pj/7f/bb/a5/12/logo-pe49424.png)
 
-#### Un exemple en Yeoman et AngularJS
+#### Un exemple avec Yeoman et AngularJS
 
 ---
 
-* C'est quoi Yeoman?
-* C'est quoi Angular?
+### C'est quoi Yeoman?
+### C'est quoi Angular?
 
 ---
 
@@ -17,13 +17,13 @@
 
 ---
 
-### Installation de Yeoman
+Installation de Yeoman
 
 ```bash
 $ npm install --global yo
 ```
 
-### Vérifier l'installation
+Vérifier l'installation
 
 ```bash
 $ yo --version
@@ -50,7 +50,7 @@ $ yo
 
 ---
 
-### Sélection du générateur et lancement
+Sélection du générateur et lancement
 
 ![selection_1](http://yeoman.io/static/03_yo_interactive.45bae71d55.png)
 
@@ -64,7 +64,7 @@ $ yo
 
 ---
 
-### Ce qu'on vient de générer
+Ce qu'on vient de générer
 
 ![generation](http://yeoman.io/static/04_tree_view.da1c9c3ef4.png)
 
