@@ -52,18 +52,30 @@ $ yo
 
 Sélection du générateur et lancement
 
-![selection](http://yeoman.io/static/03_yo_interactive.45bae71d55.png)
+![selection_1](http://yeoman.io/static/03_yo_interactive.45bae71d55.png)
 
 ---
 
-![selection](http://yeoman.io/static/03_yo_select.6d93fec77e.png)
+![selection_2](http://yeoman.io/static/03_yo_select.6d93fec77e.png)
 
 ---
 
-![selection](http://yeoman.io/static/03_yo_end.8e1fafb036.png)
+![selection_3](http://yeoman.io/static/03_yo_end.8e1fafb036.png)
 
 ---
 
+Ce qu'on vient de générer
 
+![generation](http://yeoman.io/static/04_tree_view.da1c9c3ef4.png)
 
+---
 
+Lancer notre projet
+
+```bash
+$ npm run serve
+```
+
+puis
+
+http://localhost:3000
