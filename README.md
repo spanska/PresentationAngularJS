@@ -1,2 +1,5 @@
 # PresentationAngularJS
-Présentation AngularJS donnée au Pole Emploi
+
+Présentation AngularJS YeoMan donnée au Pole Emploi
+
+https://gitpitch.com/spanska//PresentationAngularJS
