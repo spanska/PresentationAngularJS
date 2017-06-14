@@ -3,9 +3,10 @@
 #### Un exemple avec Yeoman et AngularJS
 
 ---
+<!-- .slide: data-autoslide="2000" -->
 
-### C'est quoi Yeoman?
-### C'est quoi Angular?
+### <span class="fragment" data-fragment-index="1" data-autoslide="2000">C'est quoi Yeoman?</span>
+### <span class="fragment" data-fragment-index="2" data-autoslide="2000">C'est quoi Angular?</span>
 
 ---
 
