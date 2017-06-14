@@ -1,6 +1,6 @@
 ![LOGO](http://www.pole-emploi.fr/image/mmlelement/pj/7f/bb/a5/12/logo-pe49424.png)
 
-#### AngularJS + YeoMan
+#### Un exemple en Yeoman et AngularJS
 
 ---
 
@@ -9,7 +9,7 @@
 
 ---
 
-###De quoi va t'on avoir besoin?
+### De quoi va t'on avoir besoin?
 
 * NodeJS: serveur d'application JavaScript
 * npm: Manageur de paquets JS
@@ -17,13 +17,13 @@
 
 ---
 
-Installation de Yeoman
+### Installation de Yeoman
 
 ```bash
 $ npm install --global yo
 ```
 
-Vérifier l'installation
+### Vérifier l'installation
 
 ```bash
 $ yo --version
@@ -31,7 +31,7 @@ $ yo --version
 
 ---
 
-Installation du generateur AngularJS (mais pas que...)
+### Installation du generateur AngularJS (mais pas que...)
 
 Ca gère ausssi les Modules, les preprocesseurs JS et les preprocesseurs CSS
 
@@ -41,7 +41,7 @@ $ npm install --global generator-fountain-webapp
 
 ---
 
-Création du projet
+### Création du projet
 
 ```bash
 $ mkdir todo && cd todo
@@ -50,7 +50,7 @@ $ yo
 
 ---
 
-Sélection du générateur et lancement
+### Sélection du générateur et lancement
 
 ![selection_1](http://yeoman.io/static/03_yo_interactive.45bae71d55.png)
 
@@ -64,13 +64,13 @@ Sélection du générateur et lancement
 
 ---
 
-Ce qu'on vient de générer
+### Ce qu'on vient de générer
 
 ![generation](http://yeoman.io/static/04_tree_view.da1c9c3ef4.png)
 
 ---
 
-Lancer notre projet
+### Lancer notre projet
 
 ```bash
 $ npm run serve
