@@ -4,26 +4,33 @@
 
 ---
 
-De quoi va t'on avoir besoin?
+* C'est quoi Yeoman?
+* C'est quoi Angular?
 
-* NodeJS (serveur d'application avec JavaScript comme langage)
-* npm (Manageur de paquets JS)
+---
+
+###De quoi va t'on avoir besoin?
+
+* NodeJS: serveur d'application JavaScript
+* npm: Manageur de paquets JS
 * Git (à défaut de RTC)
 
 ---
 
-Installation de yeoman
+####Installation de yeoman
 
 
 ```bash
 npm install --global yo
 ```
 
-Vérifier l'installation
+####Vérifier l'installation
 
 ```bash
 yo --version
 ```
 
 ---
+
+
 
