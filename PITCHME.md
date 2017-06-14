@@ -78,3 +78,7 @@ $ npm run serve
 puis
 
 http://localhost:3000
+
+---
+
+![exemple](http://yeoman.io/static/05_run_preview.07b20f9890.png)
