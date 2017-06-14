@@ -17,8 +17,7 @@
 
 ---
 
-Installation de yeoman
-
+Installation de Yeoman
 
 ```bash
 $ npm install --global yo
@@ -48,4 +47,23 @@ Création du projet
 $ mkdir todo && cd todo
 $ yo
 ```
+
+---
+
+Sélection du générateur et lancement
+
+![selection](http://yeoman.io/static/03_yo_interactive.45bae71d55.png)
+
+---
+
+![selection](http://yeoman.io/static/03_yo_select.6d93fec77e.png)
+
+---
+
+![selection](http://yeoman.io/static/03_yo_end.8e1fafb036.png)
+
+---
+
+
+
 
