@@ -17,20 +17,35 @@
 
 ---
 
-####Installation de yeoman
+Installation de yeoman
 
 
 ```bash
-npm install --global yo
+$ npm install --global yo
 ```
 
-####Vérifier l'installation
+Vérifier l'installation
 
 ```bash
-yo --version
+$ yo --version
 ```
 
 ---
 
+Installation du generateur AngularJS (mais pas que...)
 
+Ca gère ausssi les Modules, les preprocesseurs JS et les preprocesseurs CSS
+
+```bash
+$ npm install --global generator-fountain-webapp
+```
+
+---
+
+Création du projet
+
+```bash
+$ mkdir todo && cd todo
+$ yo
+```
 
