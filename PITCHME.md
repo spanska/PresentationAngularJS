@@ -5,8 +5,8 @@
 ---
 <!-- .slide: data-autoslide="2000" -->
 
-### <span class="fragment" data-fragment-index="1" data-autoslide="2000">C'est quoi Yeoman?</span>
-### <span class="fragment" data-fragment-index="2" data-autoslide="2000">C'est quoi Angular?</span>
+### C'est quoi Yeoman?
+### <span class="fragment" data-fragment-index="1" data-autoslide="2000">C'est quoi Angular?</span>
 
 ---
 
