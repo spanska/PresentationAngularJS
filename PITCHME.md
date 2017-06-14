@@ -65,8 +65,6 @@ Sélection du générateur et lancement
 
 ---
 
-Ce qu'on vient de générer
-
 ![generation](http://yeoman.io/static/04_tree_view.da1c9c3ef4.png)
 
 ---
