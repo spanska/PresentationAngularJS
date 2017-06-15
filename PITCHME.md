@@ -77,6 +77,10 @@ http://localhost:3002
 
 ---
 
+![did_it](https://giphy.com/embed/l3vRaWnqG3gOZ8lsk)
+
+---
+
 ###Et dans la vraie vie?
 
 ---
