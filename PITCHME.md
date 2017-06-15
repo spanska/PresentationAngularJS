@@ -77,7 +77,7 @@ $ npm run serve
 
 puis
 
-http://localhost:3000
+http://localhost:3002
 
 ---
 
