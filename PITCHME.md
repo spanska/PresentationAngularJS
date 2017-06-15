@@ -77,10 +77,6 @@ http://localhost:3002
 
 ---
 
-![exemple](http://yeoman.io/static/05_run_preview.07b20f9890.png)
-
----
-
 ###Et dans la vraie vie?
 
 ---
