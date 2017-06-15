@@ -77,7 +77,7 @@ http://localhost:3002
 
 ---
 
-![did_it](https://giphy.com/embed/l3vRaWnqG3gOZ8lsk)
+![did_it](https://media.giphy.com/media/l3vRaWnqG3gOZ8lsk/giphy.gif)
 
 ---
 
