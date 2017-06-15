@@ -82,3 +82,36 @@ http://localhost:3002
 ---
 
 ![exemple](http://yeoman.io/static/05_run_preview.07b20f9890.png)
+
+---
+
+###Dans la vraie vie...
+
+---
+
+Un petit webservice
+
+enregistrer un todo
+
+```javascript
+>> POST /api/<user>/todo
+{
+    "value": "aller chercher les enfants ce soir",
+    "status": "to_do"
+}
+
+<< HTTP/1.0 204 CREATED 
+```
+
+récupérer les todos enregistrés
+
+```javascript
+>> GET /api/<user>/todos
+
+<< {
+    "1" : {"value": "faire les courses", "status": "done"},
+    "2" : {"value": "acheter un cadeau pour la fête des pères", "status": "to_do"},
+    "3" : {"value": "rendez_vous à la banque", "status": "done"}
+}
+HTTP/1.0 200 OK 
+```
