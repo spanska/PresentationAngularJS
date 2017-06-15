@@ -85,11 +85,19 @@ http://localhost:3002
 
 ---
 
-###Dans la vraie vie...
+###Et dans la vraie vie?
 
 ---
 
-Un petit webservice
+On build le code avec la commande suivante
+
+```bash
+$ npm run build
+```
+
+Et on consomme souvent les resources d'un webservice
+
+---
 
 enregistrer un todo
 
@@ -102,6 +110,8 @@ enregistrer un todo
 
 << HTTP/1.0 204 CREATED 
 ```
+
+---
 
 récupérer les todos enregistrés
 
