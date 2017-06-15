@@ -65,10 +65,6 @@ Sélection du générateur et lancement
 
 ---
 
-![generation](http://yeoman.io/static/04_tree_view.da1c9c3ef4.png)
-
----
-
 ### Lancer notre projet
 
 ```bash
@@ -95,9 +91,12 @@ On build le code avec la commande suivante
 $ npm run build
 ```
 
-Et on consomme souvent les resources d'un webservice
+<br/>
+Et on consomme souvent les resources d'un webservice...
 
 ---
+
+### Spécs de notre webservice (1/2)
 
 enregistrer un todo
 
@@ -112,6 +111,8 @@ enregistrer un todo
 ```
 
 ---
+
+### Spécs de notre webservice (2/2)
 
 récupérer les todos enregistrés
 
