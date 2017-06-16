@@ -96,7 +96,7 @@ Et on consomme souvent les resources d'un webservice...
 
 ---
 
-### Spécs de notre webservice (1/2)
+### Spécs de notre webservice (1/3)
 
 enregistrer un todo
 
@@ -104,7 +104,7 @@ enregistrer un todo
 >> POST /api/<user>/todo
 {
     "value": "aller chercher les enfants ce soir",
-    "status": "to_do"
+    "done": false
 }
 
 << HTTP/1.0 204 CREATED 
@@ -112,7 +112,7 @@ enregistrer un todo
 
 ---
 
-### Spécs de notre webservice (2/2)
+### Spécs de notre webservice (2/3)
 
 récupérer les todos enregistrés
 
@@ -120,9 +120,24 @@ récupérer les todos enregistrés
 >> GET /api/<user>/todos
 
 << {
-    "1" : {"value": "faire les courses", "status": "done"},
-    "2" : {"value": "acheter un cadeau pour la fête des pères", "status": "to_do"},
-    "3" : {"value": "rendez_vous à la banque", "status": "done"}
+    "1" : {"value": "faire les courses", "done": true},
+    "2" : {"value": "acheter un cadeau pour la fête des pères", "done": false},
+    "3" : {"value": "rendez_vous à la banque", "done": true}
 }
 HTTP/1.0 200 OK 
 ```
+
+---
+
+### Spécs de notre webservice (3/3)
+
+effacer un todo enregistré
+
+```javascript
+>> DELETE /api/<user>/todo?id=84
+
+<< HTTP/1.0 204 NO_CONTENT
+```
+
+---
+
