@@ -1,12 +1,12 @@
 import {WebService} from './webservice';
 
-export const initialTodo = function() {
+export const initialTodo = function () {
   return {
     text: 'Use AngularJS',
     completed: false,
     id: 0
   };
-}
+};
 
 export class TodoService {
   addTodo(text, todos) {

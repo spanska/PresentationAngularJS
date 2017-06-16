@@ -4,22 +4,25 @@ const user = 'jb';
 export class WebService {
 
   constructor(http) {
-    this.http = http
+    this.http = http;
   }
 
-  this.getTodos () {
-    return this.http.get(this.urlBase + '/api/' + this.user + '/todos');
+  getTodos() {
+    return this.http.get(url + '/api/' + user + '/todos');
   }
 
-  this.insertTodo(value, done) {
-    return this.http.post(this.urlBase + '/api/' + this.user + '/todo', {
-      "value": value,
-      "done": done
+  insertTodo(value, done) {
+    const valueParam = value;
+    const doneParam = done;
+
+    return this.http.post(url + '/api/' + user + '/todo', {
+      value: valueParam,
+      done: doneParam
     });
   }
 
-  this.deleteTodo(id) {
-    return this.http.delete(this.urlBase + '/api/' + this.user + '/todo?id=' + id);
+  deleteTodo(id) {
+    return this.http.delete(url + '/api/' + user + '/todo?id=' + id);
   }
 
 }
