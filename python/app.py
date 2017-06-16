@@ -16,12 +16,12 @@ class Todo(db.Model):
     id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     user = db.Column(db.String)
     value = db.Column(db.String)
-    status = db.Column(db.String)
+    done = db.Column(db.Boolean)
 
-    def __init__(self, user, value, status_param):
+    def __init__(self, user, value, done):
         self.user = user
         self.value = value
-        self.status = status_param
+        self.done = done
 
 
 @app.route("/api/<string:user>/todos", methods=['GET'])
@@ -33,9 +33,9 @@ def get_todos(user):
     exemple de retour:
 
     {
-        "1" : {"value": "faire les courses", "status": "done"},
-        "2" : {"value": "acheter un cadeau pour la fête des pères", "status": "to_do"},
-        "3" : {"value": "rendez_vous à la banque", "status": "done"}
+        "1" : {"value": "faire les courses", "done": true},
+        "2" : {"value": "acheter un cadeau pour la fête des pères", "done": false},
+        "3" : {"value": "rendez_vous à la banque", "done": true}
     }
     </pre>
     """
@@ -48,13 +48,13 @@ def get_todos(user):
     response = {
         item.id: {
             'value': item.value,
-            'status': item.status
+            'done': item.done
         } for item in Todo.query.filter_by(user=user).all()}
 
     return response, status.HTTP_200_OK
 
 
-@app.route("/api/<string:user>/todo", methods=['POST', 'GET'])
+@app.route("/api/<string:user>/todo", methods=['POST', 'GET', 'DELETE'])
 def insert_todo(user):
     """
     <pre>
@@ -64,8 +64,15 @@ def insert_todo(user):
 
     {
         "value": "aller chercher les enfants ce soir",
-        "status": "to_do"
+        "done": false
     }
+
+    suppression d'un todo dans la liste d'un utilisateur
+
+    exemple de requête à envoyer:
+
+    /api/<string:user>/todo?id=1984
+
     </pre>
     """
 
@@ -73,18 +80,34 @@ def insert_todo(user):
 
         data = request.data
         value = data.get('value')
-        status_param = data.get('status', 'unknown')
+        done = data.get('done')
 
-        print('insertion d\'un TODO {"value": "%s", "status": "%s"} pour le user %s' % (value, status_param, user))
+        print('insertion d\'un TODO {"value": "%s", "status": "%s"} pour le user %s' % (value, done, user))
 
-        if not value or status_param not in ['done', 'to_do']:
-            abort(make_response("Il n'y pas de champ value ou le champs status n'est pas à 'done' ou 'to_do'", 400))
+        if not value or done not in [True, False]:
+            abort(make_response("Il n'y pas de champ value ou le champs status n'est pas à 'false' ou 'true'", 400))
 
         else:
-            todo = Todo(user, value, status_param)
+            todo = Todo(user, value, done)
             db.session.add(todo)
             db.session.commit()
-            return '', status.HTTP_201_CREATED
+            return {"id": todo.id}, status.HTTP_201_CREATED
+
+    elif request.method == 'DELETE':
+
+        todo_id = request.args.get('id')
+
+        print('suppression d\'un TODO {"id": "%s"}' % todo_id)
+        item = Todo.query.filter_by(id=todo_id).first()
+
+        if item:
+            db.session.delete(item)
+            db.session.commit()
+            return '', status.HTTP_204_NO_CONTENT
+
+        else:
+            return '', status.HTTP_404_NOT_FOUND
+
 
     else:
         return '', status.HTTP_200_OK
