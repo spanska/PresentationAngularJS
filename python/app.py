@@ -42,9 +42,6 @@ def get_todos(user):
 
     print("récupération des TODOs pour le user %s" % user)
 
-    for item in Todo.query.filter_by(user=user).all():
-        print(item)
-
     response = {
         item.id: {
             'value': item.value,
