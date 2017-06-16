@@ -1,12 +1,17 @@
-import {WebService} from './webservice';
-
-export const initialTodo = function () {
-  return {
-    text: 'Use AngularJS',
+const initFunction = function () {
+  return [{
+    text: 'Tutorial AngularJS 1',
     completed: false,
     id: 0
-  };
+  },
+  {
+    text: 'Tutorial AngularJS 2',
+    completed: false,
+    id: 1
+  }];
 };
+
+export const initialTodo = initFunction();
 
 export class TodoService {
   addTodo(text, todos) {

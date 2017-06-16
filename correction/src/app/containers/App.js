@@ -3,7 +3,7 @@ import {initialTodo} from '../todos/todos';
 
 class AppController {
   constructor() {
-    this.todos = [initialTodo];
+    this.todos = initialTodo;
     this.filter = SHOW_ALL;
   }
 }
