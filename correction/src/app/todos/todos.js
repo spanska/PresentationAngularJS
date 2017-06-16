@@ -1,4 +1,8 @@
+import {WebService} from './webservice';
+
 const initFunction = function () {
+  const webservice = new WebService();
+
   return [{
     text: 'Tutorial AngularJS 1',
     completed: false,
