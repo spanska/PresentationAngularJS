@@ -98,7 +98,7 @@ $ npm run build
 * On marche avec le patron de conception MVC
 * on utilise autant de controleurs que nécessaires
 
-![schema][https://sdz-upload.s3.amazonaws.com/prod/upload/mvc-angular.png]
+![schema](https://sdz-upload.s3.amazonaws.com/prod/upload/mvc-angular.png)
 
 ---
 
