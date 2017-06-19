@@ -3,9 +3,11 @@
 
 from flask import request, abort, make_response
 from flask_api import FlaskAPI, status
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
 app = FlaskAPI(__name__)
+CORS(app)
 app.config.from_pyfile('app_config.py')
 db = SQLAlchemy(app)
 
