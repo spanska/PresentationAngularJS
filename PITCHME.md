@@ -91,53 +91,88 @@ On build le code avec la commande suivante
 $ npm run build
 ```
 
-<br/>
-Et on consomme souvent les resources d'un webservice...
+---
+
+#### Architecture d'Angular
+
+* On marche avec le patron de conception MVC
+* on utilise autant de controleurs que nécessaires
+
+![schema](https://sdz-upload.s3.amazonaws.com/prod/upload/mvc-angular.png]
 
 ---
 
-### Spécs de notre webservice (1/3)
+##Et contraitement?
 
-enregistrer un todo
+---
 
-```javascript
->> POST /api/<user>/todo
-{
-    "value": "aller chercher les enfants ce soir",
-    "done": false
-}
+### Le code de l'application
 
-<< HTTP/1.0 204 CREATED 
+```html
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <section ng-controller="headerCtrl">
+            <h1>HEADER</h1>
+        </section>
+        <section ng-controller="menuCtrl">
+            <h1>MENU</h1>
+        </section>
+        <section ng-controller="contentCtrl">
+            <h1>CONTENT</h1>
+        </section>
+        <section ng-controller="footerCtrl">
+            <h1>FOOTER</h1>
+        </section>
+    </body>
+</html>
 ```
 
 ---
 
-### Spécs de notre webservice (2/3)
-
-récupérer les todos enregistrés
+### Le contrôleur
 
 ```javascript
->> GET /api/<user>/todos
+var app = angular.module("app", []);
 
-<< {
-    "1" : {"value": "faire les courses", "done": true},
-    "2" : {"value": "acheter un cadeau pour la fête des pères", "done": false},
-    "3" : {"value": "rendez_vous à la banque", "done": true}
-}
-HTTP/1.0 200 OK 
+app.controller("headerCtrl", function($scope){
+    //...    
+});
+
+app.controller("footerCtrl", function($scope){
+    //...    
+});
+
+app.controller("menuCtrl", function($scope){
+    //...    
+});
+
+app.controller("contentCtrl", function($scope){
+    //...    
+});
 ```
 
 ---
 
-### Spécs de notre webservice (3/3)
+### Qu'est ce qu'on fait de tout ça?
 
-effacer un todo enregistré
-
-```javascript
->> DELETE /api/<user>/todo?id=84
-
-<< HTTP/1.0 204 NO_CONTENT
+```html
+<div ng-app="app">
+    <div ng-controller="exempleCtrl">
+       HELLO {{name}}!
+    </div>
+</div>
 ```
 
----
+```javascript
+var app = angular.module("app", []);
 
+app.controller("exempleCtrl", function($scope) {
+    $scope.name = "World"
+});
+```
+
+###
