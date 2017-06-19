@@ -3,7 +3,6 @@ const user = 'jb';
 
 export class WebService {
 
-  /** @ngInject */
   constructor($http) {
     this.$http = $http;
   }

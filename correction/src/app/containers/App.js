@@ -2,8 +2,10 @@ import {SHOW_ALL} from '../constants/TodoFilters';
 import {initialTodo} from '../todos/todos';
 
 class AppController {
-  constructor() {
-    this.todos = initialTodo;
+
+  /** @ngInject */
+  constructor($http) {
+    this.todos = initialTodo($http);
     this.filter = SHOW_ALL;
   }
 }
