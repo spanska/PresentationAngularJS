@@ -2,30 +2,20 @@ import {WebService} from './webservice';
 
 const initFunction = function () {
   const webservice = new WebService();
-
-  return [{
-    text: 'Tutorial AngularJS 1',
-    completed: false,
-    id: 0
-  },
-  {
-    text: 'Tutorial AngularJS 2',
-    completed: false,
-    id: 1
-  }];
+  return webservice.getTodos();
 };
 
 export const initialTodo = initFunction();
 
 export class TodoService {
-  addTodo(text, todos) {
-    return [
-      {
-        id: (todos.length === 0) ? 0 : todos[0].id + 1,
-        completed: false,
-        text
-      }
-    ].concat(todos);
+
+  constructor() {
+    this.webservice = new WebService();
+  }
+
+  addTodo(text) {
+    this.webservice.insertTodo(text, false);
+    return this.webservice.getTodos();
   }
 
   completeTodo(id, todos) {
@@ -36,8 +26,9 @@ export class TodoService {
     });
   }
 
-  deleteTodo(id, todos) {
-    return todos.filter(todo => todo.id !== id);
+  deleteTodo(id) {
+    this.webservice.deleteTodo(id);
+    return this.webservice.getTodos();
   }
 
   editTodo(id, text, todos) {

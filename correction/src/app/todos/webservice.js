@@ -3,13 +3,24 @@ const user = 'jb';
 
 export class WebService {
 
-  static $inject = ['$http'];
+  /** @ngInject */
   constructor($http) {
     this.$http = $http;
   }
 
   getTodos() {
-    return this.$http.get(url + '/api/' + user + '/todos');
+    const result = this.$http.get(url + '/api/' + user + '/todos');
+    const output = [];
+    for (const val in result) {
+      if (val in result) {
+        const item = {};
+        item.id = val;
+        item.text = result[val].value;
+        item.completed = result[val].done;
+        output.push(item);
+      }
+    }
+    return output;
   }
 
   insertTodo(value, done) {
