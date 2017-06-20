@@ -236,7 +236,7 @@ effacer un todo enregistré
 
 ### Le Futur
 
-![did_it](assets/bttf.webp)
+![did_it](assets/bttf.gif)
 
 ---
 
