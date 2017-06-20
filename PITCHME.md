@@ -243,5 +243,3 @@ effacer un todo enregistré
 * Angular 2.X et 4.X (Non compatible avec Angular 1)
 * ReactJS (Facebook)
 * VueJS (Alibaba)
-
----
