@@ -4,7 +4,7 @@
 
 ---
 
-### C'est quoi Javascript?
+### Un peu d'histoire...
 
 ---
 <!-- .slide: data-autoslide="2000" -->
