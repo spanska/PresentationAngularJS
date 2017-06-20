@@ -34,7 +34,12 @@ class MainSectionController {
   }
 
   handleDestroy(e) {
-    this.todos = this.todoService.deleteTodo(e, this.todos);
+    const parentThis = this;
+    const promise = this.todoService.deleteTodo(e, this.todos);
+    const successFunc = function (response) {
+      parentThis.todos = response;
+    };
+    promise.then(successFunc);
   }
 }
 

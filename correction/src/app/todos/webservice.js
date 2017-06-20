@@ -32,9 +32,7 @@ export class WebService {
       parentThis.$log.error('échec de l\'appel au webservice de récupération des Todos');
       parentThis.$log.log(response);
     };
-
-    this.$http.get(url + '/api/' + user + '/todos').then(successFunc, errorFunc);
-//    return output;
+    return this.$http.get(url + '/api/' + user + '/todos').then(successFunc, errorFunc);
   }
 
   insertTodo(value, done) {

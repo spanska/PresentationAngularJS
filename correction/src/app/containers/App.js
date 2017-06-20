@@ -5,7 +5,12 @@ class AppController {
 
   /** @ngInject */
   constructor($http, $log) {
-    this.todos = initialTodo($http, $log);
+    const parentThis = this;
+    const promise = initialTodo($http, $log);
+    const successFunc = function (response) {
+      parentThis.todos = response;
+    };
+    promise.then(successFunc);
     this.filter = SHOW_ALL;
   }
 }
