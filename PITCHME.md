@@ -3,6 +3,10 @@
 #### Un exemple avec Yeoman et AngularJS
 
 ---
+
+### C'est quoi Javascript?
+
+---
 <!-- .slide: data-autoslide="2000" -->
 
 ### C'est quoi Yeoman?
@@ -173,6 +177,55 @@ var app = angular.module("app", []);
 app.controller("exempleCtrl", function($scope) {
     $scope.name = "World"
 });
+```
+
+---
+
+###Et dans la vraie vie véritable des gens de tous les jours?
+
+---
+
+### Spécs de notre webservice (1/3)
+
+enregistrer un todo
+
+```javascript
+>> POST /api/<user>/todo
+{
+    "value": "aller chercher les enfants ce soir",
+    "done": false
+}
+
+<< HTTP/1.0 204 CREATED 
+```
+
+---
+
+### Spécs de notre webservice (2/3)
+
+récupérer les todos enregistrés
+
+```javascript
+>> GET /api/<user>/todos
+
+<< {
+    "1" : {"value": "faire les courses", "done": true},
+    "2" : {"value": "acheter un cadeau pour la fête des pères", "done": false},
+    "3" : {"value": "rendez_vous à la banque", "done": true}
+}
+HTTP/1.0 200 OK 
+```
+
+---
+
+### Spécs de notre webservice (3/3)
+
+effacer un todo enregistré
+
+```javascript
+>> DELETE /api/<user>/todo?id=84
+
+<< HTTP/1.0 204 NO_CONTENT
 ```
 
 ---
