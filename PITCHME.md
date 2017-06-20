@@ -229,3 +229,19 @@ effacer un todo enregistré
 ```
 
 ---
+
+##Mais pourquoi on ne l'utilise plus alors?
+
+---
+
+### Le Futur
+
+![did_it](assets/bttf.webp)
+
+---
+
+* Angular 2.X et 4.X (Non compatible avec Angular 1)
+* ReactJS (Facebook)
+* VueJS (Alibaba)
+
+---
