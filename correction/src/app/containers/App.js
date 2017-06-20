@@ -4,8 +4,8 @@ import {initialTodo} from '../todos/todos';
 class AppController {
 
   /** @ngInject */
-  constructor($http) {
-    this.todos = initialTodo($http);
+  constructor($http, $log) {
+    this.todos = initialTodo($http, $log);
     this.filter = SHOW_ALL;
   }
 }

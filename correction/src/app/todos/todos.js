@@ -1,7 +1,7 @@
 import {WebService} from './webservice';
 
-const initFunction = function ($http) {
-  const webservice = new WebService($http);
+const initFunction = function ($http, $log) {
+  const webservice = new WebService($http, $log);
   return webservice.getTodos();
 };
 
@@ -10,8 +10,8 @@ export const initialTodo = initFunction;
 export class TodoService {
 
   /** @ngInject */
-  constructor($http) {
-    this.webservice = new WebService($http);
+  constructor($http, $log) {
+    this.webservice = new WebService($http, $log);
   }
 
   addTodo(text) {
