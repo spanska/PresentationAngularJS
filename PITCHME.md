@@ -106,7 +106,7 @@ $ npm run build
 
 ---
 
-##Et contraitement?
+##Et concrètement?
 
 ---
 
