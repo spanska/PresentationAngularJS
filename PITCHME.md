@@ -113,25 +113,14 @@ $ npm run build
 ### Le code de l'application
 
 ```html
-<!doctype html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <section ng-controller="headerCtrl">
-            <h1>HEADER</h1>
-        </section>
-        <section ng-controller="menuCtrl">
-            <h1>MENU</h1>
-        </section>
-        <section ng-controller="contentCtrl">
-            <h1>CONTENT</h1>
-        </section>
-        <section ng-controller="footerCtrl">
-            <h1>FOOTER</h1>
-        </section>
-    </body>
+<!DOCTYPE html>
+<html ng-app="tutoApp">
+<head>
+ <script src="Scripts/angular.js"></script>
+ <script src="app.js"></script>
+</head>
+<body>
+</body>
 </html>
 ```
 
@@ -140,43 +129,163 @@ $ npm run build
 ### Le contrôleur
 
 ```javascript
-var app = angular.module("app", []);
+var app = angular.module('tutoApp', ['fruitModule']);
+var fruitModule = angular.module('fruitModule', []);
+fruitModule.controller('fruitController', ['$scope', function ($scope) {
 
-app.controller("headerCtrl", function($scope){
-    //...    
-});
-
-app.controller("footerCtrl", function($scope){
-    //...    
-});
-
-app.controller("menuCtrl", function($scope){
-    //...    
-});
-
-app.controller("contentCtrl", function($scope){
-    //...    
-});
+}]);
 ```
 
 ---
 
 ### Qu'est ce qu'on fait de tout ça?
 
+```javascript
+fruitModule.controller('fruitController', ['$scope', function ($scope) {
+   $scope.fruit = {
+        Nom: "pomme",
+        Couleur: "rouge",
+        Peremption: new Date()
+	};
+}]);
+```
+
 ```html
-<div ng-app="app">
-    <div ng-controller="exempleCtrl">
-       HELLO {{name}}!
-    </div>
+<body ng-controller="fruitController">
+La {{fruit.Nom}} de couleur {{fruit.Couleur}} périme le {{fruit.Peremption}}
+</body>
+```
+
+---
+
+### Les filtres
+
+```javascript
+fruitModule.filter("dateFilter", ['$filter', function ($filter) {
+    return function (input) {
+        date = $filter('date')(new Date(input), 'dd/MM à HH:mm');
+        return date;
+    }
+}]);
+```
+
+On l'utilise ensuite dans notre code avec : ```{{fruit.Peremption | dateFilter}}```
+
+---
+
+### Et si j'ai plusieurs fruits?
+
+```javascript
+$scope.fruits = 
+        [{
+            Nom: "pomme",
+            Couleur: "rouge",
+            Peremption: new Date()
+        },
+        {
+            Nom: "poire",
+            Couleur: "verte",
+            Peremption: new Date()
+        },
+        {
+            Nom: "prune",
+            Couleur: "violette",
+            Peremption: new Date()
+        }];
+```
+
+```html
+<ul>
+<li ng-repeat="fruit in fruits">la {{fruit.Nom}} de couleur {{fruit.Couleur}} périme le {{fruit.Peremption | dateFilter}}</li>
+</ul>
+```
+
+---
+
+### Et si j'ai plusieurs fruits à plusieurs endroits?
+
+```javascript
+fruitModule.directive("fruitDirective", function () {
+    return {
+        template: "La {{fruit.Nom}} de couleur {{fruit.Couleur}} périme le 
+        {{fruit.Peremption | dateFilter}}"
+    };
+})
+```
+
+```html
+<ul>
+<li ng-repeat="fruit in Fruits | orderBy : 'Nom'" fruit-directive></li>
+</ul>
+```
+
+---
+
+### Un panier pour acheter des fruits...
+
+```javascript
+$scope.panier = [];
+$scope.ajouterFruitAuPanier = function (fruit) {
+        $scope.panier.push(fruit.Nom);
+};
+```
+
+```html
+<ul>
+ <li ng-repeat="fruit in Fruits | orderBy : 'Nom'">
+   <fruit-directive></fruit-directive>
+    <button ng-click="ajouterFruitAuPanier(fruit)">Ajouter le fruit au panier</button>
+ </li>
+</ul>
+Mon panier contient : {{panier}}
+```
+
+---
+
+### Dans la vraie vie
+
+```javascript
+fruitModule.controller('panierController', ['$scope', function ($scope) {
+    $scope.panier = [];
+}])
+```
+
+```html
+<body>
+<div ng-controller="fruitController">
+<ul>
+ <li ng-repeat="fruit in Fruits | orderBy : 'Nom'">
+    <fruit-directive></fruit-directive>
+    <button ng-click="ajouterFruitAuPanier(fruit)">Ajouter le fruit au panier</button>
+ </li>
+</ul>
 </div>
+<div ng-controller="panierController">
+   Mon panier contient : {{panier}}
+</div>
+</body>
+```
+
+---
+
+### Les services
+
+```javascript
+fruitModule.service("fruitService", [function () {
+    this.panier = [];
+
+    this.ajouterFruitAuPanier = function (fruit) {
+        this.panier.push(fruit.Nom);
+    }
+}]);
 ```
 
 ```javascript
-var app = angular.module("app", []);
+fruitModule.controller('fruitController', ['$scope', 'fruitService', function ($scope, fruitService) {
+}]);
 
-app.controller("exempleCtrl", function($scope) {
-    $scope.name = "World"
-});
+fruitModule.controller('panierController', ['$scope', 'fruitService', function ($scope, fruitService) {
+}])
 ```
 
 ---
@@ -196,7 +305,7 @@ enregistrer un todo
     "done": false
 }
 
-<< HTTP/1.0 204 CREATED 
+<< HTTP/1.0 204 CREATED
 ```
 
 ---
@@ -213,7 +322,7 @@ récupérer les todos enregistrés
     "2" : {"value": "acheter un cadeau pour la fête des pères", "done": false},
     "3" : {"value": "rendez_vous à la banque", "done": true}
 }
-HTTP/1.0 200 OK 
+HTTP/1.0 200 OK
 ```
 
 ---
